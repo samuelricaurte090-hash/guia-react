@@ -1,0 +1,17 @@
+# Dependencias: se reinstalan con npm install
+node_modules/
+
+# Builds de las apps de Vite
+dist/
+.vite/
+coverage/
+
+# Variables de entorno: nunca subas tus llaves (por ejemplo, la de Giphy)
+.env
+.env.local
+
+# Editor y sistema
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db

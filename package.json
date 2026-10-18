@@ -1,0 +1,18 @@
+{
+  "name": "guia-react",
+  "private": true,
+  "type": "module",
+  "description": "Plan de 6 semanas para la prueba técnica de React",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "tipos": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
