@@ -48,7 +48,7 @@ git push -u origin main
 | Martes | 2 h | Curso: sección 3, primera mitad. Ejercicios 1 a 5 |
 | Miércoles | 2 h | Curso: sección 3, segunda mitad. Lección (temas 7 a 11). Ejercicios 6 a 10 |
 | Jueves | 2 h | Ejercicios 11 a 20 |
-| Viernes | 2 h | Curso: sección 4, Primeros pasos en React |
+| Viernes | 2 h | Lección (tema 12, HTML). Curso: sección 4, Primeros pasos en React |
 | Sábado | 4 h | Reto del carrito, preguntas de entrevista, commit y push |
 
 Lo que escribas siguiendo los videos va en la carpeta `curso/` de esta semana. Los ejercicios y el reto van aparte.
@@ -242,6 +242,38 @@ describe('sumar', () => {
 
 `toBe` compara con `===` y sirve para números y textos. `toEqual` compara el contenido y es la que usas con objetos y arreglos. En la semana 2 el curso entra de lleno en pruebas.
 
+### 12. HTML lo justo para JSX
+
+JSX es HTML escrito dentro de JavaScript. Estas son las etiquetas que más vas a usar:
+
+```tsx
+<main>                                       {/* el contenido principal de la página */}
+  <header>
+    <img src="/logo.svg" alt="Logo de la tienda" />  {/* img siempre lleva alt */}
+    <h1>Tienda</h1>                          {/* un solo h1 por página; después h2, h3... */}
+  </header>
+
+  <section>
+    <h2>Productos</h2>
+    <ul>                                     {/* una lista: cada producto es un li */}
+      <li>
+        <article className="tarjeta">        {/* en JSX, class se escribe className */}
+          <h3>{producto.nombre}</h3>         {/* entre llaves va JavaScript */}
+          <p>$ 32.000</p>
+          <button onClick={agregar} disabled={producto.stock === 0}>Agregar</button>
+        </article>
+      </li>
+    </ul>
+  </section>
+</main>
+```
+
+- **Usa etiquetas que digan qué es cada cosa** (`header`, `main`, `section`, `article`, `button`) en vez de poner `div` en todo. Se llama HTML semántico: lo usan los lectores de pantalla, y los evaluadores de una prueba técnica lo notan.
+- **Lo que se hace clic es un `button`**, no un `div` con `onClick`.
+- **Diferencias con el HTML normal:** `className` en vez de `class`, `htmlFor` en vez de `for`, eventos en camelCase (`onClick`, `onChange`) y todas las etiquetas se cierran, también `<img />` y `<input />`.
+
+El CSS empieza en la semana 2. Esta semana basta con que la estructura esté bien.
+
 ## El reto: carrito básico
 
 Tu primera app de React, hecha sin mirar el video. Créala dentro de esta carpeta:
@@ -260,7 +292,10 @@ Copia `datos.ts` a `carrito/src/datos.ts` y construye esto:
 2. `App` pinta todas las tarjetas con `map` y una `key` correcta.
 3. Cada tarjeta tiene un contador de cantidad con botones `−` y `+`, hecho con `useState`. No baja de 0 ni pasa del stock.
 4. Si el stock es 0, la tarjeta dice "Agotado" y los botones quedan deshabilitados.
-5. La consola del navegador (F12) no muestra errores ni advertencias.
+5. HTML semántico (tema 12): las tarjetas van en una lista (`ul` y `li`), cada una es un `article` y los botones son `button`.
+6. La consola del navegador (F12) no muestra errores ni advertencias.
+
+El diseño no cuenta esta semana: con que se vea ordenado basta. En la semana 2 lo maquetas con flexbox.
 
 **Extra opcional:** un buscador arriba que filtre por nombre mientras escribes, usando tu `filtrarProductos`. O mostrar el total del carrito arriba de las tarjetas: para eso tienes que "subir el estado" a `App`, algo que vas a ver bien en la semana 3, pero vale la pena intentarlo.
 
@@ -286,6 +321,7 @@ Pregúntale al reclutador cómo es la prueba técnica y llena la tabla "La prueb
 - [javascript.info en español](https://es.javascript.info), parte 1: capítulos 2 (fundamentos), 4 (objetos), 5 (tipos de datos y métodos de arreglos), 6 (closures y `setTimeout`) y 11 (promesas y async/await)
 - [MDN: métodos de los arreglos](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array), para consultar `map`, `filter`, `reduce` y compañía
 - [react.dev en español: Inicio rápido](https://es.react.dev/learn), para complementar la sección 4
+- [MDN: sintaxis básica de HTML](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax), si el tema 12 te queda corto
 - [TypeScript en 5 minutos](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html), en inglés
 
 ## Terminado si
@@ -293,7 +329,7 @@ Pregúntale al reclutador cómo es la prueba técnica y llena la tabla "La prueb
 - [ ] `node -v` muestra v24 o más y el repositorio está en GitHub
 - [ ] `npm test -- semana-01` muestra **61 passed**
 - [ ] `npm run tipos` no muestra errores
-- [ ] El carrito cumple los 5 puntos del reto
+- [ ] El carrito cumple los 6 puntos del reto
 - [ ] Respondiste las 8 preguntas de entrevista sin mirar
 - [ ] Llenaste la tabla de la prueba en el README principal
 - [ ] Hiciste commit y push, y anotaste la semana en `PROGRESO.md`

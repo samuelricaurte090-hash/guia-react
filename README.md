@@ -1,10 +1,8 @@
 # Guía de estudio · React para la prueba técnica
 
-**Meta:** llegar a la prueba técnica de React, a finales de noviembre de 2026, siendo capaz de construir solo (sin video ni IA) una app con React, TypeScript, rutas, consumo de una API y pruebas automáticas.
+**Meta:** conseguir el primer trabajo en desarrollo web. El primer hito es la prueba técnica de React, a finales de noviembre de 2026: llegar con la capacidad de construir sin ayuda (sin video ni IA) una app con React, TypeScript, rutas, consumo de una API y pruebas automáticas.
 
 **Curso base:** [React: De cero a experto](https://www.udemy.com/course/react-cero-experto/), de Fernando Herrera. Es la versión renovada en enero de 2026: 30 secciones, 46 h de video, React 19 con TypeScript, Tailwind, shadcn, TanStack Query, Zustand, React Router 7 y Vitest.
-
-> Mientras tanto, la guía de IA y datos (`guia-ia-datos`) queda en pausa del 19 de octubre al 29 de noviembre. Se retoma después de la prueba.
 
 ## La prueba
 
@@ -26,7 +24,7 @@ Llena esta tabla en la semana 1. Lo que no sepas, pregúntaselo al reclutador: c
 Cada semana tiene su carpeta con tres cosas:
 
 1. **Lección** (`README.md`): qué secciones del curso ver, lo que necesitas saber y por qué importa en la prueba.
-2. **Práctica**: ejercicios con pruebas automáticas (`npm test -- semana-01`) y un reto que haces solo, con criterios claros de "terminado".
+2. **Práctica**: ejercicios con pruebas automáticas (`npm test -- semana-01`) y un reto que haces sin ayuda, con criterios claros de "terminado".
 3. **Preparación de la prueba**: preguntas de entrevista y una tarea pequeña.
 
 Las semanas se preparan una a la vez, según cómo te fue en la anterior. Cuando termines una, abre esta carpeta en Claude Code y escribe:
@@ -45,24 +43,32 @@ El curso tiene 46 h de video. Con pausas para escribir el código, ejercicios y 
 
 ## Mapa de semanas
 
-| Semana | Fechas | Secciones del curso | Video | Entregable hecho por ti | Estado |
-|---|---|---|---|---|---|
-| [S1](semana-01-fundamentos/) | 19 – 25 oct | 1–4: intro, refuerzo JS/TS, primeros pasos | 5 h | 20 ejercicios de JS/TS y carrito básico | Lista |
-| S2 | 26 oct – 1 nov | 5–8: testing, GifExpertApp, despliegue | 7 h | GifExpertApp publicada y 5 pruebas tuyas | Se prepara al terminar S1 |
-| S3 | 2 – 8 nov | 9–12: hooks, useReducer, memorización, Context | 7 h | App de tareas con useReducer, Context y localStorage | |
-| S4 | 9 – 15 nov | 13–17: HeroesApp, caché, búsquedas, testing | 10 h | HeroesApp con rutas y búsqueda por query string | |
-| S5 | 16 – 22 nov | 18–23: panel admin, auth, formularios, archivos | 8 h | Panel con login y CRUD de productos | |
-| S6 | 23 – 29 nov | 24–30 (MERN) o simulacros | 9 h | Según el tipo de prueba | |
+| Semana | Fechas | Secciones del curso | Video | HTML y CSS | Entregable hecho por ti | Estado |
+|---|---|---|---|---|---|---|
+| [S1](semana-01-fundamentos/) | 19 – 25 oct | 1–4: intro, refuerzo JS/TS, primeros pasos | 5 h | HTML lo justo para JSX (en la lección) | 20 ejercicios de JS/TS y carrito básico | Lista |
+| S2 | 26 oct – 1 nov | 5–8: testing, GifExpertApp, despliegue | 7 h | Modelo de caja y flexbox (3 h) | GifExpertApp publicada, 5 pruebas tuyas y el carrito maquetado con flexbox | Se prepara al terminar S1 |
+| S3 | 2 – 8 nov | 9–12: hooks, useReducer, memorización, Context | 7 h | Grid y diseño responsive (3 h) | App de tareas con useReducer, Context y localStorage que se ve bien en el celular | |
+| S4 | 9 – 15 nov | 13–17: HeroesApp, caché, búsquedas, testing | 10 h | Tailwind (1,5 h) | HeroesApp con rutas y búsqueda por query string | |
+| S5 | 16 – 22 nov | 18–21 y 23: panel admin, auth, formularios | 7 h | Formularios accesibles (1 h) | Panel con login y CRUD de productos | |
+| S6 | 23 – 29 nov | 24–30 (MERN) o simulacros | 9 h | Repaso en los simulacros | Según el tipo de prueba | |
 
 **Semana 6:** si la prueba incluye backend, haces las secciones MERN (Node, Express y Mongo). Si es solo frontend, te las saltas y haces 3 simulacros cronometrados. En los dos casos, el último simulacro va en los días antes de la prueba.
 
-**Si te atrasas, recorta en este orden:**
+## La pista de HTML y CSS
 
-1. Las secciones de testing (5, 8 y 16, unas 8 h) a 1,5x, escribiendo pocas pruebas propias. Si la prueba no pide tests, son lo primero que sale.
-2. Carga de archivos (sección 22).
-3. El bloque MERN, si la prueba es solo frontend.
+El curso da por sabido HTML y CSS, y en la prueba también cuenta que la app se vea ordenada y funcione en el celular. Por eso va una pista corta cada semana, pegada al reto: aprendes flexbox y lo usas ese mismo sábado en tu app.
 
-Nunca recortes los retos: son lo más parecido a la prueba.
+El orden importa. Desde la HeroesApp (semana 4) el curso usa Tailwind, que son clases de CSS con otro nombre: si ya sabes flexbox y grid, Tailwind se aprende en una tarde; si no, se vuelve copiar clases sin entenderlas.
+
+Las horas salen de recortes que ya vienen aplicados:
+
+- Las secciones de testing (5, 8 y 16, unas 8 h de video) se ven a 1,5x, escribiendo pocas pruebas propias.
+- La sección 11 (memorización) también a 1,5x.
+- La sección 22 (carga de archivos) se salta.
+
+Esto es lo mínimo para la prueba, no todo CSS. Después de la prueba, CSS a fondo es lo primero de la siguiente etapa.
+
+**Si aun así te atrasas,** recorta el bloque MERN si la prueba es solo frontend, y después las pruebas propias de cada semana. Nunca recortes los retos ni la pista de CSS: son lo más parecido a la prueba.
 
 ## Reglas de la guía
 

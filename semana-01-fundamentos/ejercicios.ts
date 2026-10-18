@@ -9,7 +9,7 @@
  * Para correr un solo ejercicio: npm test -- semana-01 -t ej07
  *
  * Regla: no pidas la solución completa a una IA. Pide pistas o una revisión
- * cuando ya tengas un intento. En la prueba técnica estarás solo.
+ * cuando ya tengas un intento. En la prueba técnica no vas a tener ayuda.
  */
 
 import type { Categoria, ItemCarrito, Personaje, PersonajeApi, Producto } from './datos';
