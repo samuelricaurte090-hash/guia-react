@@ -1,8 +1,8 @@
-# Semana 1 · Fundamentos de JavaScript, TypeScript y React
+# Semana 1 · JavaScript, TypeScript, HTML y CSS
 
-**Fechas:** 19 al 25 de octubre de 2026 · **Tiempo:** 14 horas · **Curso:** secciones 1 a 4 (5 h de video)
+**Fechas:** 19 al 25 de octubre de 2026 · **Tiempo:** 26,5 h de programación y 2,5 h de inglés · **Curso:** secciones 1 a 4 (5 h de video)
 
-React es JavaScript. Casi todos los errores de quien empieza con React son en realidad de JavaScript: mutar un arreglo, olvidar un `await`, comparar objetos con `===`. Por eso esta semana tiene poco video y mucha práctica de JS y TypeScript, y termina con tu primera app de React.
+React es JavaScript. Casi todos los errores de quien empieza con React son en realidad de JavaScript: mutar un arreglo, olvidar un `await`, comparar objetos con `===`. Por eso esta semana tiene poco video y mucha práctica: JavaScript y TypeScript, el HTML y el CSS que el curso da por sabidos, y tu primera app de React, maquetada por ti.
 
 Vienes de Python, así que la lógica ya la tienes. Lo nuevo es la sintaxis y unas cuantas trampas.
 
@@ -42,14 +42,17 @@ git push -u origin main
 
 ## Cómo trabajar
 
-| Día | Tiempo | Qué hacer |
-|---|---|---|
-| Lunes | 2 h | Paso 0, lección (temas 1 a 6) y curso: secciones 1 y 2 |
-| Martes | 2 h | Curso: sección 3, primera mitad. Ejercicios 1 a 5 |
-| Miércoles | 2 h | Curso: sección 3, segunda mitad. Lección (temas 7 a 11). Ejercicios 6 a 10 |
-| Jueves | 2 h | Ejercicios 11 a 20 |
-| Viernes | 2 h | Lección (tema 12, HTML). Curso: sección 4, Primeros pasos en React |
-| Sábado | 4 h | Reto del carrito, preguntas de entrevista, commit y push |
+De lunes a viernes son 4,5 h de programación y 30 min de inglés (ver más abajo).
+
+| Día | Programación |
+|---|---|
+| Lunes | Paso 0. Lección, temas 1 a 6. Curso: secciones 1 y 2, y el primer tercio de la 3 |
+| Martes | Curso: resto de la sección 3. Lección, temas 7 a 11. Ejercicios 1 a 7 |
+| Miércoles | Ejercicios 8 a 20 |
+| Jueves | Repaso en javascript.info de lo que más te costó (1,5 h). Lección, tema 12 (HTML). Curso: sección 4, Primeros pasos en React |
+| Viernes | Lección, temas 13 y 14 (CSS y flexbox). Flexbox Froggy. Empezar el carrito: la parte de React |
+| Sábado (4 h) | Terminar el carrito con su diseño, preguntas de entrevista, ruta de empleo, commit y push |
+| Domingo | Descanso |
 
 Lo que escribas siguiendo los videos va en la carpeta `curso/` de esta semana. Los ejercicios y el reto van aparte.
 
@@ -63,7 +66,7 @@ Para correr un solo ejercicio: `npm test -- semana-01 -t ej07`. Lee el error con
 
 Al final, revisa los tipos con `npm run tipos`.
 
-**Diagnóstico:** si resuelves los ejercicios 1 a 10 en menos de hora y media sin buscar nada, ya tienes la base de JavaScript: ve el resto de la sección 3 a 1,5x. Si te trabas en más de 5, no avances a la semana 2 sin repasar los capítulos de javascript.info que salen en Recursos. Todo el curso se apoya en esto.
+**Diagnóstico:** si resuelves los ejercicios 1 a 10 en menos de hora y media sin buscar nada, ya tienes la base de JavaScript: ve el resto de la sección 3 a 1,5x y usa el repaso del jueves para empezar la sección 5 del curso. Si te trabas en más de 5, alarga el repaso del jueves con los capítulos de javascript.info que salen en Recursos. Todo el curso se apoya en esto.
 
 ## La lección
 
@@ -272,11 +275,67 @@ JSX es HTML escrito dentro de JavaScript. Estas son las etiquetas que más vas a
 - **Lo que se hace clic es un `button`**, no un `div` con `onClick`.
 - **Diferencias con el HTML normal:** `className` en vez de `class`, `htmlFor` en vez de `for`, eventos en camelCase (`onClick`, `onChange`) y todas las etiquetas se cierran, también `<img />` y `<input />`.
 
-El CSS empieza en la semana 2. Esta semana basta con que la estructura esté bien.
+### 13. CSS: reglas y modelo de caja
+
+En una app de Vite, el CSS va en un archivo que importas desde el componente: `import './App.css'`. Una regla tiene un selector y declaraciones:
+
+```css
+.aviso {                      /* selector de clase: aplica a className="aviso" */
+  padding: 16px;              /* espacio entre el borde y el contenido */
+  border: 1px solid #d0d5dd;  /* el borde */
+  margin-bottom: 12px;        /* espacio por fuera del borde */
+  border-radius: 8px;
+  color: #b42318;
+}
+
+.aviso strong {               /* los strong que están dentro de un .aviso */
+  font-size: 1.1rem;          /* rem: relativo a la letra base, que suele ser 16 px */
+}
+```
+
+Todo elemento es una caja con cuatro capas, de adentro hacia afuera: contenido, `padding`, `border` y `margin`. Pon esto al inicio de tu CSS para que el ancho que declares incluya el padding y el borde. Casi todos los proyectos lo hacen:
+
+```css
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+```
+
+Da estilo con clases, no con ids ni con etiquetas sueltas: las clases se reutilizan y se leen mejor. En el navegador, clic derecho y **Inspeccionar** te muestra la caja de cualquier elemento con sus medidas. Úsalo cada vez que algo no quede donde esperas.
+
+### 14. Flexbox
+
+Flexbox acomoda elementos en una fila o en una columna. Se activa en el contenedor y controla a sus hijos directos:
+
+```css
+.barra {                          /* barra de navegación: logo a un lado, menú al otro */
+  display: flex;
+  justify-content: space-between; /* reparte en la dirección de la fila */
+  align-items: center;            /* alinea en la otra dirección */
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;                /* si no caben, bajan a la siguiente línea */
+  gap: 16px;                      /* espacio entre hijos: mejor que margin */
+}
+
+.galeria > * {
+  flex: 1 1 200px;                /* crece, se encoge y parte de 200 px de ancho */
+}
+
+.perfil {
+  display: flex;
+  flex-direction: column;         /* ahora los hijos van en columna */
+  gap: 8px;
+}
+```
+
+`justify-content` reparte en la dirección principal (la fila, o la columna si cambiaste `flex-direction`) y `align-items` alinea en la otra. Con `flex-direction: column` los dos se intercambian, y esa es la confusión más común. Antes del reto, juega [Flexbox Froggy](https://flexboxfroggy.com/#es): son 24 niveles cortos y al final te sabes estas propiedades.
 
 ## El reto: carrito básico
 
-Tu primera app de React, hecha sin mirar el video. Créala dentro de esta carpeta:
+Tu primera app de React, hecha y maquetada sin mirar el video. Créala dentro de esta carpeta:
 
 ```powershell
 cd semana-01-fundamentos
@@ -286,18 +345,19 @@ npm install
 npm run dev
 ```
 
-Copia `datos.ts` a `carrito/src/datos.ts` y construye esto:
+Copia `datos.ts` a `carrito/src/datos.ts`, borra el CSS de ejemplo que trae Vite y construye esto:
 
 1. Un componente `TarjetaProducto` que recibe un `Producto` por props (tipadas con `interface`) y muestra el nombre, el precio y el stock. Para el precio: `` `$ ${precio.toLocaleString('es-CO')}` `` da `$ 32.000`.
 2. `App` pinta todas las tarjetas con `map` y una `key` correcta.
 3. Cada tarjeta tiene un contador de cantidad con botones `−` y `+`, hecho con `useState`. No baja de 0 ni pasa del stock.
 4. Si el stock es 0, la tarjeta dice "Agotado" y los botones quedan deshabilitados.
 5. HTML semántico (tema 12): las tarjetas van en una lista (`ul` y `li`), cada una es un `article` y los botones son `button`.
-6. La consola del navegador (F12) no muestra errores ni advertencias.
+6. Diseño con flexbox y CSS escrito por ti, sin librerías (temas 13 y 14):
+   - Las tarjetas se acomodan varias por fila y bajan a la siguiente línea cuando no caben. Achica la ventana del navegador para comprobarlo.
+   - En cada tarjeta, el contador queda abajo aunque los nombres tengan largos distintos. Pista: `margin-top: auto` en un hijo de un contenedor flex en columna.
+7. La consola del navegador (F12) no muestra errores ni advertencias.
 
-El diseño no cuenta esta semana: con que se vea ordenado basta. En la semana 2 lo maquetas con flexbox.
-
-**Extra opcional:** un buscador arriba que filtre por nombre mientras escribes, usando tu `filtrarProductos`. O mostrar el total del carrito arriba de las tarjetas: para eso tienes que "subir el estado" a `App`, algo que vas a ver bien en la semana 3, pero vale la pena intentarlo.
+**Extra opcional:** un buscador arriba que filtre por nombre mientras escribes, usando tu `filtrarProductos`. O mostrar el total del carrito arriba de las tarjetas: para eso tienes que "subir el estado" a `App`, algo que vas a ver bien más adelante en el curso, pero vale la pena intentarlo.
 
 ## Preguntas de entrevista
 
@@ -311,25 +371,37 @@ Respóndelas en voz alta, en menos de un minuto cada una. Si no puedes, vuelve a
 6. ¿Por qué en React no se debe modificar el estado directamente?
 7. ¿Qué es JSX y en qué se convierte?
 8. ¿Qué diferencia hay entre props y estado?
+9. ¿Qué es el modelo de caja? ¿Qué cambia `box-sizing: border-box`?
+10. En flexbox, ¿qué diferencia hay entre `justify-content` y `align-items`?
 
-## Preparación de la prueba
+## Inglés de esta semana
 
-Pregúntale al reclutador cómo es la prueba técnica y llena la tabla "La prueba" del README principal: formato, duración, JavaScript o TypeScript, si incluye backend y si piden pruebas automáticas. Con eso se ajustan las semanas 5 y 6.
+Treinta minutos de lunes a viernes:
+
+- Instala [Anki](https://apps.ankiweb.net/) y crea un mazo llamado "Inglés técnico". Cada día agrega 5 palabras que te hayas encontrado en el código o en los errores (`array`, `request`, `expected`, `received`, `render`...) y repasa las que te toque.
+- Empieza el curso gratuito de [BBC Learning English](https://www.bbc.co.uk/learningenglish/) en tu nivel, 20 minutos al día.
+
+## Ruta de empleo
+
+- **GitHub:** arregla tu perfil, con foto, nombre real y una línea de bio (por ejemplo, "Aprendiendo desarrollo web fullstack · React · Node · Colombia"). Sube `guia-react` y `guia-ia-datos`, y fija `guia-react`.
+- **La prueba:** pregúntale a tu amigo cómo fue su prueba técnica y llena la tabla del README principal.
 
 ## Recursos
 
 - [javascript.info en español](https://es.javascript.info), parte 1: capítulos 2 (fundamentos), 4 (objetos), 5 (tipos de datos y métodos de arreglos), 6 (closures y `setTimeout`) y 11 (promesas y async/await)
 - [MDN: métodos de los arreglos](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array), para consultar `map`, `filter`, `reduce` y compañía
 - [react.dev en español: Inicio rápido](https://es.react.dev/learn), para complementar la sección 4
-- [MDN: sintaxis básica de HTML](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax), si el tema 12 te queda corto
 - [TypeScript en 5 minutos](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html), en inglés
+- [MDN: sintaxis básica de HTML](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax)
+- [MDN: el modelo de caja](https://developer.mozilla.org/es/docs/Learn_web_development/Core/Styling_basics/Box_model) y [MDN: flexbox](https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Flexbox), si los temas 13 y 14 te quedan cortos
 
 ## Terminado si
 
 - [ ] `node -v` muestra v24 o más y el repositorio está en GitHub
 - [ ] `npm test -- semana-01` muestra **61 passed**
 - [ ] `npm run tipos` no muestra errores
-- [ ] El carrito cumple los 6 puntos del reto
-- [ ] Respondiste las 8 preguntas de entrevista sin mirar
-- [ ] Llenaste la tabla de la prueba en el README principal
+- [ ] El carrito cumple los 7 puntos del reto
+- [ ] Respondiste las 10 preguntas de entrevista sin mirar
+- [ ] Hiciste inglés al menos 4 de los 5 días
+- [ ] Tu perfil de GitHub está listo y llenaste la tabla de la prueba
 - [ ] Hiciste commit y push, y anotaste la semana en `PROGRESO.md`

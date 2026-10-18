@@ -4,12 +4,13 @@
 
 | Día | Hora | Duración |
 |---|---|---|
-| Lunes | | 2 h |
-| Martes | | 2 h |
-| Miércoles | | 2 h |
-| Jueves | | 2 h |
-| Viernes | | 2 h |
+| Lunes | | 5 h |
+| Martes | | 5 h |
+| Miércoles | | 5 h |
+| Jueves | | 5 h |
+| Viernes | | 5 h |
 | Sábado | | 4 h |
+| Domingo | Descanso | — |
 
 ## Bitácora
 
@@ -19,8 +20,10 @@ Copia este bloque al terminar cada semana.
 
 - **Fecha de cierre:**
 - **Horas reales:**
+- **Días de inglés (de 5):**
 - **Secciones del curso vistas:**
 - **Lo que aprendí:**
 - **Lo que me costó:**
 - **Qué voy a repasar:**
+- **Ruta de empleo:**
 - **Enlaces (commits, apps publicadas):**

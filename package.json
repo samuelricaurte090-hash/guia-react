@@ -2,7 +2,7 @@
   "name": "guia-react",
   "private": true,
   "type": "module",
-  "description": "Plan de 6 semanas para la prueba técnica de React",
+  "description": "Guía de estudio de desarrollo web fullstack con React y Node",
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
