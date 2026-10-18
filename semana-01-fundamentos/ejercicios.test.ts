@@ -458,6 +458,7 @@ describe('ej18 · obtenerVarios', () => {
     const fetchFalso = simularApi(personajes, barrera);
 
     const promesa = obtenerVarios([1, 2, 3]);
+    promesa.catch(() => {}); // si falla, el error se reporta en el await de abajo
     await new Promise((resolve) => setTimeout(resolve, 10));
 
     // Ninguna respuesta ha llegado todavía. Si ya se pidieron los 3, van en paralelo.
