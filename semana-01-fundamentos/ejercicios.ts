@@ -27,9 +27,11 @@ import type { Categoria, ItemCarrito, Personaje, PersonajeApi, Producto } from '
  *
  * Pista: parámetro por defecto y Math.round().
  */
-export function precioConIva(precio: number, iva = 0.19): number {
-  throw new Error('Ejercicio 1 sin resolver');
-}
+export function precioConIva(precio: number, iva: number): number {
+    return Math.round(precio + (precio * iva))
+};
+
+precioConIva(10000, 0.05)
 
 /**
  * Ejercicio 2. Saluda según la hora del día (de 0 a 23).
@@ -41,7 +43,13 @@ export function precioConIva(precio: number, iva = 0.19): number {
  * Pista: template literals (`...${nombre}`).
  */
 export function saludo(nombre: string, hora: number): string {
-  throw new Error('Ejercicio 2 sin resolver');
+  if(hora <= 11 && hora >= 0){
+    return(`Buenos dias, ${nombre}`)
+  } else if (hora >= 12 && 18 >= hora){
+    return(`Buenas tardes, ${nombre}`)
+  } else {
+    return(`Buenas noches, ${nombre}`)
+  }
 }
 
 /**
@@ -54,7 +62,11 @@ export function saludo(nombre: string, hora: number): string {
  * textos vacíos cuando hay varios espacios seguidos.
  */
 export function iniciales(nombreCompleto: string): string {
-  throw new Error('Ejercicio 3 sin resolver');
+  return nombreCompleto 
+    .split(' ')
+    .map(palabra => palabra[0])
+    .join('')
+    .toLocaleUpperCase()
 }
 
 /**
@@ -67,7 +79,9 @@ export function iniciales(nombreCompleto: string): string {
  * le das valor inicial?
  */
 export function sumarPares(numeros: number[]): number {
-  throw new Error('Ejercicio 4 sin resolver');
+  return numeros
+    .filter(n => n%2 == 0)
+    .reduce((acc, numeros) => acc + numeros, 0)
 }
 
 // ---------------------------------------------------------------------------
@@ -81,7 +95,9 @@ export function sumarPares(numeros: number[]): number {
  *     nombresDisponibles(productos)  // ['Café de Huila 500 g', 'Audífonos inalámbricos', ...]
  */
 export function nombresDisponibles(productos: Producto[]): string[] {
-  throw new Error('Ejercicio 5 sin resolver');
+  return productos
+  .filter(p => p.stock > 0)
+  .map(p => `${p} ${p.stock}`)
 }
 
 /**
