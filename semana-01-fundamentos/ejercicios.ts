@@ -107,7 +107,7 @@ export function nombresDisponibles(productos: Producto[]): string[] {
  *     buscarPorId(productos, 99)         // undefined
  */
 export function buscarPorId(productos: Producto[], id: number): Producto | undefined {
-  throw new Error('Ejercicio 6 sin resolver');
+  return productos.find(p => p.id === id)
 }
 
 /**
@@ -120,7 +120,9 @@ export function buscarPorId(productos: Producto[], id: number): Producto | undef
  * devuelve un número negativo si a va primero.
  */
 export function ordenarPorPrecio(productos: Producto[], orden: 'asc' | 'desc' = 'asc'): Producto[] {
-  throw new Error('Ejercicio 7 sin resolver');
+  return productos.toSorted((a, b) => {
+    return orden === 'asc' ? a.precio - b.precio: b.precio - a.precio
+  })
 }
 
 /**
@@ -133,9 +135,18 @@ export function ordenarPorPrecio(productos: Producto[], orden: 'asc' | 'desc' = 
  * reduce(): en una entrevista te pueden pedir que lo hagas sin atajos.
  */
 export function agruparPorCategoria(productos: Producto[]): Partial<Record<Categoria, Producto[]>> {
-  throw new Error('Ejercicio 8 sin resolver');
-}
+  return productos.reduce((acc, p) => {
+    const clave = p.categoria
 
+    if(!acc[clave]){
+      acc[clave] = []
+    }
+
+    acc[clave].push(p)
+
+    return acc
+  }, {} as Partial<Record<Categoria, Producto[]>>)
+}
 export interface Filtros {
   texto?: string;
   categoria?: Categoria;
@@ -157,7 +168,25 @@ export interface Filtros {
  * línea: const { texto = '', categoria, soloDisponibles = false } = filtros;
  */
 export function filtrarProductos(productos: Producto[], filtros: Filtros = {}): Producto[] {
-  throw new Error('Ejercicio 9 sin resolver');
+  return productos.filter(p => {
+
+    if(filtros.texto){
+      const termino = filtros.texto.toLowerCase().trim()
+      const coincideTexto = p.nombre.toLocaleLowerCase().includes(termino)
+      if (!coincideTexto) return false
+    }
+
+    if (filtros.categoria && p.categoria !== filtros.categoria){
+      return false
+    }
+      
+
+    if (filtros.soloDisponibles && p.stock <= 0){
+      return false
+    }
+
+    return true
+  })
 }
 
 export interface Pagina<T> {
@@ -181,7 +210,31 @@ export interface Pagina<T> {
  * arreglos de cualquier tipo.
  */
 export function paginar<T>(items: T[], pagina: number, porPagina: number): Pagina<T> {
-  throw new Error('Ejercicio 10 sin resolver');
+  
+  const totalPaginas = Math.ceil(items.length / porPagina)
+
+  if (pagina < 1 || pagina > totalPaginas){
+    return {
+      items: [],
+      pagina,
+      totalPaginas,
+      hayAnterior: pagina > 1,
+      haySiguiente: pagina < totalPaginas
+    }
+  }
+
+  const inicio = (pagina - 1) * porPagina
+  const fin = inicio + porPagina
+
+  const itemsPaginados = items.slice(inicio, fin)
+
+  return {
+    items: itemsPaginados,
+    pagina,
+    totalPaginas,
+    haySiguiente: pagina > 1,
+    hayAnterior: pagina < totalPaginas
+  }
 }
 
 // ---------------------------------------------------------------------------
