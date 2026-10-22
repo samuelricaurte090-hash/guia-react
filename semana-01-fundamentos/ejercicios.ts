@@ -12,7 +12,7 @@
  * cuando ya tengas un intento. En la prueba técnica no vas a tener ayuda.
  */
 
-import type { Categoria, ItemCarrito, Personaje, PersonajeApi, Producto } from './datos';
+import { productos, type Categoria, type ItemCarrito, type Personaje, type PersonajeApi, type Producto } from './datos';
 
 // ---------------------------------------------------------------------------
 // Nivel 1 · Lo básico
@@ -249,7 +249,14 @@ export function paginar<T>(items: T[], pagina: number, porPagina: number): Pagin
  *     venderUnidades(cafe, 2)  // { ...cafe, stock: 10 }, y cafe sigue con 12
  */
 export function venderUnidades(producto: Producto, unidades: number): Producto {
-  throw new Error('Ejercicio 11 sin resolver');
+  if(producto.stock < unidades){
+    throw new Error('Stock no disponible')
+  }
+
+  return {
+    ...producto,
+    stock: producto.stock - unidades
+  }
 }
 
 /**
@@ -262,16 +269,18 @@ export function venderUnidades(producto: Producto, unidades: number): Producto {
  * Ojo: item.cantidad++ modifica el objeto original. Crea uno nuevo con spread.
  */
 export function agregarAlCarrito(carrito: ItemCarrito[], productoId: number): ItemCarrito[] {
-  throw new Error('Ejercicio 12 sin resolver');
+  const actualizado = carrito.map((i) => (i.productoId === productoId ? { ...i, cantidad: i.cantidad + 1 } : i))
+  return actualizado
 }
 
 /**
  * Ejercicio 13. Quita un producto del carrito, sin importar su cantidad.
  */
 export function quitarDelCarrito(carrito: ItemCarrito[], productoId: number): ItemCarrito[] {
-  throw new Error('Ejercicio 13 sin resolver');
+  return carrito
+  .map((i) => (i.productoId === productoId ? { ...i, cantidad: i.cantidad - 1 } : i))
+  .filter(i => i.cantidad > 0)
 }
-
 /**
  * Ejercicio 14. Calcula el total del carrito: precio por cantidad de cada
  * item. Si un item apunta a un producto que no existe, ignóralo.
@@ -279,8 +288,16 @@ export function quitarDelCarrito(carrito: ItemCarrito[], productoId: number): It
  *     totalCarrito([{ productoId: 1, cantidad: 2 }], productos)  // 64000
  */
 export function totalCarrito(carrito: ItemCarrito[], productos: Producto[]): number {
-  throw new Error('Ejercicio 14 sin resolver');
+  return carrito.reduce((acc, i) => {
+
+    const productoOriginal = productos.find(p => p.id === i.productoId)
+
+    const precio = productoOriginal ? productoOriginal.precio : 0
+
+    return acc + (precio * i.cantidad)
+  }, 0)
 }
+
 
 /**
  * Ejercicio 15. Marca o desmarca un favorito: si el id está, lo quita; si no
