@@ -1,6 +1,6 @@
 # Semana 1 · JavaScript, TypeScript, HTML y CSS
 
-**Fechas:** 19 al 25 de octubre de 2026 · **Tiempo:** 26,5 h de programación y 2,5 h de inglés · **Curso:** secciones 1 a 4 (5 h de video)
+**Fechas:** 19 al 27 de octubre de 2026 (se alargó dos días) · **Tiempo:** 26,5 h de programación y 2,5 h de inglés · **Curso:** secciones 1 a 4 (5 h de video)
 
 React es JavaScript. Casi todos los errores de quien empieza con React son en realidad de JavaScript: mutar un arreglo, olvidar un `await`, comparar objetos con `===`. Por eso esta semana tiene poco video y mucha práctica: JavaScript y TypeScript, el HTML y el CSS que el curso da por sabidos, y tu primera app de React, maquetada por ti.
 
@@ -55,6 +55,46 @@ De lunes a viernes son 4,5 h de programación y 30 min de inglés (ver más abaj
 | Domingo | Descanso |
 
 Lo que escribas siguiendo los videos va en la carpeta `curso/` de esta semana. Los ejercicios y el reto van aparte.
+
+### Curso, lección y ejercicios
+
+Cada pieza tiene su papel: el curso te explica el tema por primera vez, la lección de abajo es el resumen con las trampas de quien viene de Python, y los ejercicios comprueban si lo entendiste sin video al lado. Por cada bloque de clases:
+
+1. Ve el bloque y escribe el código con Fernando en `curso/`. Antes de que él escriba algo, pausa e intenta hacerlo tú.
+2. Lee el tema de la lección que le corresponde (5 minutos).
+3. Haz los ejercicios de ese tema enseguida, con el video cerrado.
+4. Commit, solo si las pruebas de esos ejercicios están en verde.
+
+**Sección 3 · Reforzamiento JavaScript / TypeScript**
+
+| Clases del curso | Tema de la lección | Ejercicios |
+|---|---|---|
+| Variables y constantes · Template String | 1 y 2 | 1 y 2 |
+| Objetos literales · Interfaces de TypeScript | 5 y 8 | Lee `datos.ts`: ahí están las interfaces de los ejercicios |
+| Arreglos · Funciones · Funciones con múltiples retornos | 3 y 4 | 3 a 7, y el 19 (closures) |
+| Desestructuración de objetos y de arreglos, y su tarea | 5 | 9 y 11 |
+| Interfaces y Enumeraciones | 8 | 8 (`Record`) y 10 (genérico `<T>`) |
+| Importaciones y exportaciones, y su tarea | 7 | Mira la línea `import` de `ejercicios.ts` y de las pruebas |
+| Promesas | 9 | 16 |
+| Giphy API · Fetch API · Interfaces y optimización · Async-Await | 9 | 17 y 18 |
+
+Los ejercicios 17 y 18 son lo mismo que Fernando hace con Giphy, pero con la API de Rick and Morty: una interface para la respuesta de la API (`PersonajeApi`) y la conversión a la forma que usa tu app (`Personaje`).
+
+**Sección 4 · Primeros pasos en React**
+
+| Clases del curso | Tema de la lección | Práctica |
+|---|---|---|
+| Mi primer componente · Impresión de variables | 12 | |
+| Colocar estilos de CSS · Archivos de CSS | 13 y 14 | Flexbox Froggy |
+| ItemCounter · Props · Mostrar listados · Eventos · useState | 6 | Ejercicios 12 a 15 y el carrito |
+
+El carrito es esta sección rehecha sin mirar: tu `TarjetaProducto` es la versión propia del `ItemCounter` de Fernando, con props, una lista y `useState`.
+
+El ejercicio 20 (debounce) se adelanta al curso: vuelve a salir en la sección de GifExpertApp, en la clase "useEffect - Debounce". Hazlo esta semana y allá vas a entender de una por qué existe.
+
+- Haz siempre las tareas del curso (Desestructuración, Importación y exportación, Segundo componente). Son cortas y cuentan.
+- Si un ejercicio es de un tema que aún no has visto en el curso, sáltalo y vuelve después de la clase. Los ejercicios van por dificultad, no en el orden del curso.
+- Si creaste el proyecto de Reforzamiento en otra carpeta, pásalo a `curso/`: copia todo menos `node_modules` y corre `npm install` ahí.
 
 Para resolver los ejercicios, abre `ejercicios.ts` y deja las pruebas vigilando en una terminal. Se vuelven a correr solas cada vez que guardas:
 

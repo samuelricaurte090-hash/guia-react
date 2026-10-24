@@ -4,10 +4,10 @@
 
 **Hitos:**
 
-- **15 de noviembre:** frontend con React terminado: el curso hasta la sección 23 y tres apps publicadas.
-- **29 de noviembre:** backend básico con Node, MongoDB y PostgreSQL. Si la prueba técnica llega antes, ya tienes completo el frontend, que es lo que más se evalúa en un cargo que empieza siendo frontend.
-- **Desde el 30 de noviembre:** postulaciones todas las semanas.
-- **13 de diciembre:** proyecto fullstack propio publicado.
+- **17 de noviembre:** frontend con React terminado: el curso hasta la sección 23 y tres apps publicadas.
+- **1 de diciembre:** backend básico con Node, MongoDB y PostgreSQL. Si la prueba técnica llega antes, ya tienes completo el frontend, que es lo que más se evalúa en un cargo que empieza siendo frontend.
+- **Desde el 2 de diciembre:** postulaciones todas las semanas.
+- **15 de diciembre:** proyecto fullstack propio publicado.
 
 **Curso base:** [React: De cero a experto](https://www.udemy.com/course/react-cero-experto/), de Fernando Herrera. Es la versión renovada en enero de 2026: 30 secciones, 46 h de video, React 19 con TypeScript, Tailwind, shadcn, TanStack Query, Zustand, React Router 7, Vitest y un bloque MERN (Mongo, Express, React y Node).
 
@@ -52,18 +52,18 @@ Por ejemplo, de 8:30 a 11:30 y de 12:30 a 14:30, para llegar al trabajo con ener
 
 | Semana | Fechas | Qué | Entregable hecho por ti | Estado |
 |---|---|---|---|---|
-| [S1](semana-01-fundamentos/) | 19 – 25 oct | Curso 1–4 · JavaScript y TypeScript · HTML, CSS y flexbox | 20 ejercicios y carrito maquetado con flexbox | Lista |
-| S2 | 26 oct – 1 nov | Curso 5–10 · testing, GifExpertApp, hooks, useReducer · grid y responsive | GifExpertApp publicada, que se ve bien en el celular | Se prepara al terminar S1 |
-| S3 | 2 – 8 nov | Curso 11–17 · memorización, Context, HeroesApp · Tailwind | HeroesApp publicada | |
-| S4 | 9 – 15 nov | Curso 18–23 · panel admin, auth, formularios · Git en equipo | Panel con login y CRUD, y primer simulacro de frontend | |
-| S5 | 16 – 22 nov | Curso 24–27 · HTTP, REST, Node, Express y MongoDB | API REST propia, hecha sin mirar el video | |
-| S6 | 23 – 29 nov | Curso 28–30 · SQL y PostgreSQL | MERN Calendar publicado y simulacro fullstack | |
-| S7 | 30 nov – 6 dic | Proyecto propio, parte 1 | Backend con PostgreSQL, login y pruebas | |
-| S8 | 7 – 13 dic | Proyecto propio, parte 2 | Frontend publicado y conectado | |
-| S9 | 14 – 20 dic | Portafolio y entrevistas | Página de portafolio y presentación de 3 minutos | |
-| S10 | 21 – 31 dic | Postulaciones y repaso | Simulacros de entrevista. Libres: 24, 25 y 31 | |
+| [S1](semana-01-fundamentos/) | 19 – 27 oct | Curso 1–4 · JavaScript y TypeScript · HTML, CSS y flexbox | 20 ejercicios y carrito maquetado con flexbox | Lista |
+| S2 | 28 oct – 3 nov | Curso 5–10 · testing, GifExpertApp, hooks, useReducer · grid y responsive | GifExpertApp publicada, que se ve bien en el celular | Se prepara al terminar S1 |
+| S3 | 4 – 10 nov | Curso 11–17 · memorización, Context, HeroesApp · Tailwind | HeroesApp publicada | |
+| S4 | 11 – 17 nov | Curso 18–23 · panel admin, auth, formularios · Git en equipo | Panel con login y CRUD, y primer simulacro de frontend | |
+| S5 | 18 – 24 nov | Curso 24–27 · HTTP, REST, Node, Express y MongoDB | API REST propia, hecha sin mirar el video | |
+| S6 | 25 nov – 1 dic | Curso 28–30 · SQL y PostgreSQL | MERN Calendar publicado y simulacro fullstack | |
+| S7 | 2 – 8 dic | Proyecto propio, parte 1 | Backend con PostgreSQL, login y pruebas | |
+| S8 | 9 – 15 dic | Proyecto propio, parte 2 | Frontend publicado y conectado | |
+| S9 | 16 – 22 dic | Portafolio y entrevistas | Página de portafolio y presentación de 3 minutos | |
+| S10 | 23 – 31 dic | Postulaciones y repaso | Simulacros de entrevista. Libres: 24, 25 y 31 | |
 
-Si te atrasas, corre el calendario antes que saltarte un reto: los retos son lo más parecido a una prueba técnica. Lo único que se puede recortar sin mucho costo es la sección 22 del curso (carga de archivos).
+Desde la semana 2, cada semana va de miércoles a martes: la semana 1 se alargó dos días. Si te atrasas, corre el calendario antes que saltarte un reto: los retos son lo más parecido a una prueba técnica. Lo único que se puede recortar sin mucho costo es la sección 22 del curso (carga de archivos).
 
 ## Las pistas
 
