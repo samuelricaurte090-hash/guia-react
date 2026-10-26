@@ -27,11 +27,11 @@ import { productos, type Categoria, type ItemCarrito, type Personaje, type Perso
  *
  * Pista: parámetro por defecto y Math.round().
  */
-export function precioConIva(precio: number, iva: number): number {
+export function precioConIva(precio: number, iva = 0.19): number {
     return Math.round(precio + (precio * iva))
 };
 
-precioConIva(10000, 0.05)
+
 
 /**
  * Ejercicio 2. Saluda según la hora del día (de 0 a 23).
@@ -44,7 +44,7 @@ precioConIva(10000, 0.05)
  */
 export function saludo(nombre: string, hora: number): string {
   if(hora <= 11 && hora >= 0){
-    return(`Buenos dias, ${nombre}`)
+    return(`Buenos días, ${nombre}`)
   } else if (hora >= 12 && 18 >= hora){
     return(`Buenas tardes, ${nombre}`)
   } else {
@@ -97,7 +97,7 @@ export function sumarPares(numeros: number[]): number {
 export function nombresDisponibles(productos: Producto[]): string[] {
   return productos
   .filter(p => p.stock > 0)
-  .map(p => `${p} ${p.stock}`)
+  .map(p => p.nombre)
 }
 
 /**
@@ -232,8 +232,8 @@ export function paginar<T>(items: T[], pagina: number, porPagina: number): Pagin
     items: itemsPaginados,
     pagina,
     totalPaginas,
-    haySiguiente: pagina > 1,
-    hayAnterior: pagina < totalPaginas
+    haySiguiente: pagina < totalPaginas,
+    hayAnterior: pagina > 1,
   }
 }
 
@@ -250,7 +250,7 @@ export function paginar<T>(items: T[], pagina: number, porPagina: number): Pagin
  */
 export function venderUnidades(producto: Producto, unidades: number): Producto {
   if(producto.stock < unidades){
-    throw new Error('Stock no disponible')
+    throw new Error('Stock insuficiente')
   }
 
   return {
@@ -269,8 +269,12 @@ export function venderUnidades(producto: Producto, unidades: number): Producto {
  * Ojo: item.cantidad++ modifica el objeto original. Crea uno nuevo con spread.
  */
 export function agregarAlCarrito(carrito: ItemCarrito[], productoId: number): ItemCarrito[] {
-  const actualizado = carrito.map((i) => (i.productoId === productoId ? { ...i, cantidad: i.cantidad + 1 } : i))
-  return actualizado
+  const yaEsta = carrito.some((i) => i.productoId === productoId)
+
+  if (yaEsta){
+    return carrito.map((i) => (i.productoId === productoId? {...i, cantidad: i.cantidad + 1}: i))
+  }                   
+  return [...carrito, { productoId: productoId, cantidad: 1}]
 }
 
 /**
