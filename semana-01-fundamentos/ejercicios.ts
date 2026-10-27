@@ -281,9 +281,7 @@ export function agregarAlCarrito(carrito: ItemCarrito[], productoId: number): It
  * Ejercicio 13. Quita un producto del carrito, sin importar su cantidad.
  */
 export function quitarDelCarrito(carrito: ItemCarrito[], productoId: number): ItemCarrito[] {
-  return carrito
-  .map((i) => (i.productoId === productoId ? { ...i, cantidad: i.cantidad - 1 } : i))
-  .filter(i => i.cantidad > 0)
+  return carrito.filter(i => i.productoId !== productoId)
 }
 /**
  * Ejercicio 14. Calcula el total del carrito: precio por cantidad de cada
@@ -311,7 +309,14 @@ export function totalCarrito(carrito: ItemCarrito[], productos: Producto[]): num
  *     alternarFavorito([1, 2, 3], 2)  // [1, 3]
  */
 export function alternarFavorito(favoritos: number[], id: number): number[] {
-  throw new Error('Ejercicio 15 sin resolver');
+  const estaFav = favoritos.includes(id)
+  
+  if(estaFav){
+    return favoritos.filter(i => i!== id)
+  }
+
+  return [...favoritos, id]
+  
 }
 
 // ---------------------------------------------------------------------------
